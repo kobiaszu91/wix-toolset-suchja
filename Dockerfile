@@ -10,7 +10,7 @@ COPY waitonprocess.sh /scripts/
 RUN chmod +x /scripts/waitonprocess.sh
 
 # Install .NET Framework 4.0
-# USER xclient
+USER root
 RUN wine wineboot --init \
 		&& /scripts/waitonprocess.sh wineserver \
 		&& winetricks --unattended dotnet40 dotnet_verifier \
